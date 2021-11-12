@@ -29,14 +29,20 @@ module.exports = {
               importLoaders: 1,
             },
           },
-          'postcss-loader',
+          //   'postcss-loader',
         ],
+        include: /\.module\.css$/,
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        exclude: /\.module\.css$/,
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: 'public/index.html',
     }),
   ],
   devServer: {

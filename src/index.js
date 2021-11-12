@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './style/index.css';
+import Header from './components/header';
+import Main from './components/main';
+import './style/patters.css';
+import './style/layout.css';
 
 function App() {
-  return <h1 className={styles.title}> Hello world </h1>;
+  return (
+    <>
+      <Header />
+      <Main />
+    </>
+  );
 }
 ReactDOM.render(<App />, document.getElementById('root'));
-  

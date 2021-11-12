@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+body {
+  font-family: 'Manrope', sans-serif;
+}
+.title {
+  color: var(--Dark-Desaturated-Blue);
+  margin: 0 20px;
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--Grayish-Blue);
+  font-weight: 600;
+  margin: 0 20px;
+  text-align: center;
+}
+.cardTitle {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  color: var(--Grayish-Blue);
+  font-weight: 800;
+}
+
+.smallText {
+  font-size: 0.8rem;
+  color: var(--Grayish-Blue);
+  font-weight: 800;
+}
+.billingTag {
+  font-size: 2rem;
+  color: var(--Dark-Desaturated-Blue);
+  font-weight: 800;
+  margin: 0 10px;
+}

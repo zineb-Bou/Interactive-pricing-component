@@ -1,0 +1,29 @@
+body::before {
+  content: '';
+  height: 250px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: hsl(221, 80%, 96%);
+  border-radius: 0 0 0 20%;
+  z-index: -1;
+}
+.circle {
+  position: absolute;
+  display: inline-block;
+  height: 130px;
+  width: 130px;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 1px solid var(--Light-Grayish-Blue);
+  z-index: -1;
+}
+.big-circle {
+  height: 100px;
+  width: 100px;
+}
+.small-circle {
+  height: 70px;
+  width: 70px;
+  transform: translate(30px, -40px);
+}

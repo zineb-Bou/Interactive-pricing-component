@@ -1,0 +1,24 @@
+:root {
+  /* (Full Slider Bar) */
+  --Soft-Cyan: hsl(174, 77%, 80%);
+  /* (Slider Backround) */
+  --Strong-Cyan: hsl(174, 86%, 45%);
+  /* (Discount Background) */
+  --Light-Grayish-Red: hsl(14, 92%, 95%);
+  /* (Discount Text) */
+  --Light-Red: hsl(15, 100%, 70%);
+  /* (CTA Text) */
+  --Pale-Blue: hsl(226, 100%, 87%);
+  /* (Pricing Component Background) */
+  --White: hsl (0, 0%, 100%);
+  /* (Main Background) */
+  --Very-Pale-Blue: hsl(230, 100%, 99%);
+  /* (Empty Slider Bar) */
+  --Light-Grayish-Blue: hsl(224, 65%, 95%);
+  /*  (Toggle Background) */
+  --Light-Grayish-Blue: hsl(223, 50%, 87%);
+  /* (Text) */
+  --Grayish-Blue: hsl(225, 20%, 60%);
+  /* (Text & CTA Background) */
+  --Dark-Desaturated-Blue: hsl(227, 35%, 25%);
+}
