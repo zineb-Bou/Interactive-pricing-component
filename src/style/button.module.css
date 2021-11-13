@@ -9,7 +9,6 @@
   width: 10rem;
   height: 2rem;
   font-size: 0.8rem;
-  margin: 0 20px;
   cursor: pointer;
 }
 
@@ -30,6 +29,9 @@
   position: relative;
   margin: 0 20px;
 }
+.toggleWrapper:focus-within {
+  background-color: var(--Soft-Cyan);
+}
 .toggleBall {
   content: '';
   background-color: #fff;
@@ -39,15 +41,19 @@
   border-radius: 50px;
   width: 20px;
   height: 20px;
+  /* visibility: hidden; */
 }
-.toggleWrapper > input {
-  visibility: hidden;
+input[type='radio'] {
+  opacity: 0;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
 }
+
 .toggleYearly:checked ~ .toggleBall {
   transform: translateX(15px);
   transition: transform 200ms linear;
 }
-
 .discountTag {
   background-color: var(--Light-Grayish-Red);
   color: var(--Light-Red);
@@ -56,29 +62,3 @@
   font-weight: 800;
   font-size: 0.7rem;
 }
-/* .rangeWrapper {
-  background-color: var(--Soft-Cyan);
-  display: flex;
-  justify-content: center;
-  height: 1rem;
-  width: 25rem;
-  border-radius: 50px;
-  position: relative;
-} */
-/* input[type='range'] {
-  visibility: hidden;
-}
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  visibility: hidden;
-}
-
-.thumb {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
-  background-color: var(--Strong-Cyan);
-  display: grid;
-  place-items: center;
-  
-} */

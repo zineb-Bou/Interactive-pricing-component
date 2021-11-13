@@ -10,11 +10,6 @@ const pricing = [
   { viewsValue: 500, viewsSymbol: 'K', price: 24 },
   { viewsValue: 1, viewsSymbol: 'M', price: 36 },
 ];
-// - 10K pageviews / $8 per month
-// - 50K pageviews / $12 per month
-// - 100K pageviews / $16 per month
-// - 500k pageviews / $24 per month
-// - 1M pageviews / $36 per month
 function CardFooter() {
   return (
     <div className="card-footer">
@@ -37,39 +32,56 @@ function CardFooter() {
   );
 }
 class Slider extends React.Component {
+  constructor(props) {
+    super(props);
+    this.sliderThumb = React.createRef();
+    this.sliderWidth = React.createRef();
+  }
+  handleThumbChnge(d, w) {
+    this.sliderThumb.current.style.setProperty('--d', d);
+    this.sliderWidth.current.style.width = w;
+  }
   handleViewsChange(views) {
     this.props.onViewsChange(views);
   }
   handleValueChange(e) {
-    const price = pricing[e.target.value].price;
-    const views = `${pricing[e.target.value].viewsValue}${
-      pricing[e.target.value].viewsSymbol
-    }`;
+    const max = e.target.getAttribute('max');
+    const value = e.target.value;
+    const d = (value / max) * 29 + 'rem';
+    const w = (value / max) * 29 + 'rem';
+    const price = pricing[value].price;
+    const views = `${pricing[value].viewsValue}${pricing[value].viewsSymbol}`;
     this.props.onPriceChange(price);
     this.handleViewsChange(views);
+    this.handleThumbChnge(d, w);
   }
   render() {
     return (
-      <div className="card-content__slidebar">
-        <label htmlFor="price">
-          {/* className={styles.rangeWrapper} */}
-          <span>
-            <input
-              id="price"
-              type="range"
-              min="0"
-              max="4"
-              onChange={this.handleValueChange.bind(this)}
-            />
-            {/* className={styles.thumb} */}
-            <span className="sliderTrack"></span>
-            <span className="sliderThumb">
+      <label htmlFor="price" className="sliderbar">
+        <span className="visually-hidden">
+          On a scale of 8 to 36, get how pricing and pageviews
+        </span>
+        <span className="slider">
+          <input
+            id="price"
+            type="range"
+            min="0"
+            max="4"
+            onChange={this.handleValueChange.bind(this)}
+            className="sliderInput"
+          />
+          <span className="sliderWrapper" aria-hidden="true">
+            <span
+              className="sliderTrack"
+              aria-hidden="true"
+              ref={this.sliderWidth}
+            ></span>
+            <span className="sliderThumb" ref={this.sliderThumb}>
               <SliderIcon className="sliderIcon" />
             </span>
           </span>
-          <span className="visually-hidden"> Price</span>
-        </label>
-      </div>
+        </span>
+      </label>
     );
   }
 }
@@ -77,8 +89,8 @@ class CardTop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: pricing[4].price,
-      views: `${pricing[4].viewsValue}${pricing[4].viewsSymbol}`,
+      price: pricing[0].price,
+      views: `${pricing[0].viewsValue}${pricing[0].viewsSymbol}`,
     };
   }
   handlePriceChange(price) {
@@ -91,6 +103,12 @@ class CardTop extends React.Component {
       views,
     });
   }
+  ShowMonthlyBilling() {
+    this.setState({ price: 32 });
+  }
+  ShowYearlyBilling() {
+    this.setState({ price: 24 });
+  }
   render() {
     return (
       <div className="card-content">
@@ -99,17 +117,16 @@ class CardTop extends React.Component {
           <h3 className={font.cardTitle}> {this.state.views} pageviews </h3>
           <div className="card-top__pricing">
             <output
+              htmlFor="price"
               className={font.billingTag}
             >{`$ ${this.state.price}.00`}</output>
             <p className={font.smallText}> / month</p>
           </div>
+          <Slider
+            onPriceChange={this.handlePriceChange.bind(this)}
+            onViewsChange={this.handleViewsChange.bind(this)}
+          />
         </div>
-        <Slider
-          // price={this.state.price}
-          // //
-          onPriceChange={this.handlePriceChange.bind(this)}
-          onViewsChange={this.handleViewsChange.bind(this)}
-        />
         <div className="card-content__bottom">
           <fieldset className={styles.toggleButton} aria-label="pricing toggle">
             <legend className="visually-hidden">Billing option</legend>
@@ -123,7 +140,8 @@ class CardTop extends React.Component {
                 id="monthly"
                 name="notify"
                 value="monthly"
-                checked={true}
+                // checked={true}
+                onChange={this.ShowMonthlyBilling.bind(this)}
               />
               <input
                 className={styles.toggleYearly}
@@ -131,11 +149,12 @@ class CardTop extends React.Component {
                 id="yearly"
                 name="notify"
                 value="yearly"
+                onChange={this.ShowYearlyBilling.bind(this)}
               />
               <span aria-hidden="true" className={styles.toggleBall}></span>
             </div>
             <label htmlFor="yearly" className={font.smallText}>
-              Yearly billing
+              Yearly pricing
             </label>
           </fieldset>
           <span className={styles.discountTag}> 25% discount</span>

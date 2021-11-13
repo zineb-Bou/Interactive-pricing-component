@@ -1,5 +1,7 @@
 @import 'reset.css';
-
+:root {
+  --d: 0;
+}
 body {
   min-height: 100vh;
   background-color: var(--Very-Pale-Blue);
@@ -21,22 +23,24 @@ body {
   position: relative;
 }
 .card {
-  width: 30rem;
+  width: 35rem;
   padding: 10px 0;
   background-color: #fff;
   border-radius: 5px;
   margin: 10px 20px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  margin-top: -2rem;
 }
 .card-content {
   display: flex;
   flex-direction: column;
+  padding: 0 30px;
 }
 .card-content__top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  margin-top: 1rem;
 }
 .card-top__pricing {
   display: flex;
@@ -44,10 +48,10 @@ body {
   align-items: center;
 }
 .card-content__slidebar {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
-  margin: 30px 0;
+  margin: 2rem 0;
 }
 
 .card-content__bottom {
@@ -55,6 +59,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .card-footer {
   display: flex;
@@ -62,6 +67,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--Light-Grayish-Blue);
+  padding: 0 30px;
 }
 .list {
   padding: 0;
@@ -71,7 +77,7 @@ body {
   color: var(--Grayish-Blue);
 }
 .checkmarkIcon {
-  margin: 0 10px;
+  margin-right: 10px;
   width: 14px;
   height: 12px;
   stroke: #10d8c4;
@@ -90,4 +96,45 @@ body {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+.slider {
+  display: grid;
+  grid-template-areas: 'layer';
+  align-items: center;
+  width: 32rem;
+}
+.sliderInput {
+  opacity: 0;
+  z-index: 2;
+  width: 100%;
+  grid-area: layer;
+}
+.sliderWrapper {
+  width: 100%;
+  background-color: var(--Light-Grayish-Blue);
+  height: 0.5rem;
+  border-radius: 30px;
+  grid-area: layer;
+  position: relative;
+}
+.sliderTrack {
+  display: inline-block;
+  height: 0.5rem;
+  border-radius: 30px;
+  background-color: var(--Soft-Cyan);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sliderThumb {
+  transform: translateX(var(--d));
+  display: grid;
+  place-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 30px;
+  background-color: var(--Strong-Cyan);
+  position: absolute;
+  top: -18px;
+  left: 0;
 }
