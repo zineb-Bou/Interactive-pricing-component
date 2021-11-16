@@ -53,7 +53,7 @@ class CardTop extends React.Component {
           <output htmlFor="price">
             <span className={font.cardTitle}>{this.state.views} pageviews</span>
           </output>
-          <output htmlFor="price billing-frequency">
+          <output htmlFor="price billing-frequency" className="dskt-2rd-Elem">
             <span
               className={font.billingTag}
             >{`$ ${this.state.price}.00`}</span>
@@ -66,7 +66,9 @@ class CardTop extends React.Component {
         </div>
         <div className="card-content__toggleButton">
           <RadioToggle onToggle={this.handlePriceChange.bind(this)} />
-          <span className={styles.discountTag}> 25% discount</span>
+          <span className={styles.discountTag} aria-label="yearly discount">
+            25% <span className="dskt-only">discount</span>
+          </span>
         </div>
       </div>
     );

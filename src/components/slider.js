@@ -29,7 +29,7 @@ class Slider extends React.Component {
   }
   render() {
     return (
-      <div className={styles.slider}>
+      <div className={`${styles.slider} dskt-3rd-Elem`}>
         <label className="sr-only" htmlFor="price">
           On a scale of 8 to 36, get how pricing and pageviews
         </label>
