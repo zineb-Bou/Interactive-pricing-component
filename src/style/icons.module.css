@@ -1,0 +1,12 @@
+.checkmark {
+  margin-right: 10px;
+  width: 14px;
+  height: 12px;
+  stroke: #10d8c4;
+  fill: none;
+}
+.slider {
+  fill: #80fff3;
+  width: 22px;
+  height: 13px;
+}

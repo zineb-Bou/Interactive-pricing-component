@@ -1,5 +1,4 @@
 @import 'color.css';
-
 .cta {
   color: #fff;
   background-color: var(--Dark-Desaturated-Blue);
@@ -11,7 +10,6 @@
   font-size: 0.8rem;
   cursor: pointer;
 }
-
 .toggleButton {
   border: none;
   display: flex;
@@ -41,7 +39,6 @@
   border-radius: 50px;
   width: 20px;
   height: 20px;
-  /* visibility: hidden; */
 }
 input[type='radio'] {
   opacity: 0;
@@ -61,4 +58,48 @@ input[type='radio'] {
   border-radius: 20px;
   font-weight: 800;
   font-size: 0.7rem;
+}
+.slider {
+  display: grid;
+  grid-template-areas: 'layer';
+  align-items: center;
+  padding: 0 3rem;
+  grid-column: 1/-1;
+  width: 100%;
+}
+.sliderInput {
+  opacity: 0;
+  z-index: 2;
+  grid-area: layer;
+}
+.sliderWrapper {
+  background-color: var(--Light-Grayish-Blue);
+  height: 0.5rem;
+  border-radius: 30px;
+  grid-area: layer;
+  width: 100%;
+  position: relative;
+}
+.sliderTrack {
+  height: 0.5rem;
+  border-radius: 30px;
+  background-color: var(--Soft-Cyan);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  grid-area: range;
+}
+.sliderThumb {
+  display: grid;
+  place-items: center;
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--Strong-Cyan);
+  border-radius: 30px;
+  position: absolute;
+  top: -1.2rem;
+  left: 50%;
+  transform-origin: center;
+  transform: translateX(-50%);
 }
