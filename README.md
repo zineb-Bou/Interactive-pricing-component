@@ -22,7 +22,7 @@ That was one of the hardest challenges I had to take, implementing an accessible
 
 To customize the slide I had to add a couple of layouts on top of `<input type=range>` and make it transparent.
 
-When it comes to style I tried to use both regular CSS (for the general style layout) and CSS modules (for styling components), I had to add some Webpack configuration to use both.
+When it comes to style I tried to use both regular CSS (for the general style) and CSS modules (for styling components), I had to add some Webpack configuration to use both.
 
 I would like  to add some animation using Framer Motion. I am still new to React so maybe my current solution isn't the best, I will add some changes in the future while I still learning and practicing.
 
