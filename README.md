@@ -34,6 +34,6 @@ Some resources that helped me in this challenge:
 
 ### Links
 
-- Live Site URL: [Add live site URL here]()
+- Live Site URL: [Add live site URL here](https://github.com/zineb-Bou/Interactive-pricing-component)
 
 Made with 💖 by [Zineb Boutaa](https://zineb-bou.github.io/)
