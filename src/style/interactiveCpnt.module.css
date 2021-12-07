@@ -71,6 +71,7 @@ input[type='radio'] {
   opacity: 0;
   z-index: 2;
   grid-area: layer;
+  cursor: grab;
 }
 .sliderWrapper {
   background-color: var(--Light-Grayish-Blue);
@@ -102,4 +103,5 @@ input[type='radio'] {
   left: 50%;
   transform-origin: center;
   transform: translateX(-50%);
+  filter: drop-shadow(0 0.5rem 0.3rem var(--Soft-Cyan));
 }

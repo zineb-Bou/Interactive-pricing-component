@@ -48,9 +48,9 @@ class Slider extends React.Component {
             aria-hidden="true"
             ref={this.sliderWidth}
           ></span>
-          <span className={styles.sliderThumb} ref={this.sliderThumb}>
+          <div className={styles.sliderThumb} ref={this.sliderThumb}>
             <SliderIcon className={icon.slider} />
-          </span>
+          </div>
         </span>
       </div>
     );
